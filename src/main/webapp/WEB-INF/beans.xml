@@ -12,6 +12,9 @@
 		<jaxrs:serviceBeans>
 			<ref bean="userServiceBean" />
 		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider" />
+		</jaxrs:providers>
 	</jaxrs:server>
 
 	<bean id="userServiceBean" class="com.nextgen.service.IUserServiceImpl" />
@@ -25,7 +28,8 @@
 	<security:authentication-manager alias="authenticationManager">
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="omkar" password="omkar" authorities="ROLE_USER,ROLE_ADMIN"/>
+				<security:user name="omkar" password="omkar"
+					authorities="ROLE_USER,ROLE_ADMIN" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
