@@ -15,9 +15,6 @@
 		<spring.security.version>4.0.3.RELEASE</spring.security.version>
 	</properties>
 
-	<build>
-		<finalName>springsecurityrest</finalName>
-	</build>
 
 
 	<dependencies>
@@ -69,15 +66,15 @@
 
 		<!-- JSON Databinding -->
 		<dependency>
-	<groupId>org.codehaus.jackson</groupId>
-	<artifactId>jackson-jaxrs</artifactId>
-	<version>1.9.13</version>
-</dependency>
-	<dependency>
-		<groupId>org.codehaus.jackson</groupId>
-		<artifactId>jackson-xc</artifactId>
-		<version>1.9.13</version>
-	</dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-xc</artifactId>
+			<version>1.9.13</version>
+		</dependency>
 
 		<!-- XML databinding -->
 		<dependency>
@@ -93,8 +90,41 @@
 			<version>1.1.1</version>
 		</dependency>
 
-
-
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.3.6.v20151106</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<finalName>springsecurityrest</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>8.0.24.0</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 
 </project>

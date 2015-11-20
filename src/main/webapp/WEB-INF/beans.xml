@@ -8,7 +8,7 @@
          http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<jaxrs:server id="userService" address="/">
+	<jaxrs:server id="userService" address="/springsecurityrest">
 		<jaxrs:serviceBeans>
 			<ref bean="userServiceBean" />
 		</jaxrs:serviceBeans>
@@ -21,7 +21,8 @@
 
 	<security:http use-expressions="true" auto-config="true"
 		create-session="stateless">
-		<security:intercept-url pattern="/**" access="authenticated" />
+		<security:intercept-url pattern="/user/**"
+			access="authenticated" />
 		<security:http-basic />
 	</security:http>
 
