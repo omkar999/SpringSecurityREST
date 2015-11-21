@@ -6,8 +6,13 @@ XML and JSONresponses are supported depending upon the "Accept" header. For exam
 
 This App is deployed on Heroku.
 Secure Heroku URL - https://pure-earth-1315.herokuapp.com/springsecurityrest/user/get/{your-name}
-Username : omkar and  Password : omkar
 
-https://pure-earth-1315.herokuapp.com/springsecurityrest/hello/{your-name}
+Username : omkar and  Password : omkar.
+
+This can be tested using POSTMAN or AdvancedRESTClient tools.
+
+url pattern 'springsecurityrest/user/**' is secured and 'springsecurityrest/hello/**' is not secured.
+
+This call does not required Authentication : https://pure-earth-1315.herokuapp.com/springsecurityrest/hello/{your-name}
 
 
