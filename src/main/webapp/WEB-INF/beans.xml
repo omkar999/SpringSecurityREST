@@ -21,7 +21,7 @@
 
 	<security:http use-expressions="true" auto-config="true"
 		create-session="stateless">
-		<security:intercept-url pattern="/user/**"
+		<security:intercept-url pattern="/springsecurityrest/user/**"
 			access="authenticated" />
 		<security:http-basic />
 	</security:http>
